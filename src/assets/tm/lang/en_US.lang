@@ -1,0 +1,29 @@
+item.TutItem.name=Tutorial Item
+
+item.TutPickaxe.name=Tutorial Pickaxe
+item.TutAxe.name=Tutorial Axe
+item.TutHoe.name=Tutorial Hoe
+item.TutSpade.name=Tutorial Spade
+item.TutSword.name=Tutorial Sword
+
+item.TutHelmet.name=Tutorial Helmet
+item.TutPlate.name=Tutorial Chestplate
+item.TutPants.name=Tutorial Pants
+item.TutBoots.name=Tutorial Boots
+
+item.TutGrenade.name=Tutorial Grenade
+entity.TutGrenade.name=Tutorial Grenade 
+
+tile.TutBlock.name=Tutorial Block
+
+tile.TutCrop.name=Tutorial Crop
+item.TutCropItem.name=Tutorial Crop
+item.TutSeeds.name=Tutorial Seeds
+
+entity.TutMob.name=Tutorial Mob
+entity.TutHostileMob.name=Tutorial Hostile Mob
+
+itemGroup.TutBlockTab=Tutorial Blocks
+itemGroup.TutCombatTab=Tutorial Combat 
+itemGroup.TutMiscTab=Tutorial Misc
+itemGroup.TutToolsTab=Tutorial Tools
