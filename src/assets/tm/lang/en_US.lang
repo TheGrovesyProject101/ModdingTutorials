@@ -15,6 +15,7 @@ item.TutGrenade.name=Tutorial Grenade
 entity.TutGrenade.name=Tutorial Grenade 
 
 tile.TutBlock.name=Tutorial Block
+tile.TutChest.name=Tutorial Chest
 
 tile.TutCrop.name=Tutorial Crop
 item.TutCropItem.name=Tutorial Crop

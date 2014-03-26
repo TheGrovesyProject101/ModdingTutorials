@@ -5,6 +5,7 @@ import com.thegrovesyproject.creativetabs.TMCreativeTabs;
 import com.thegrovesyproject.entity.TMEntity;
 import com.thegrovesyproject.item.TMItem;
 import com.thegrovesyproject.lib.Strings;
+import com.thegrovesyproject.tile_entity.TMTileEntity;
 import com.thegrovesyproject.world.TMWorld;
 
 import cpw.mods.fml.common.Mod;
@@ -34,6 +35,7 @@ public class MainRegistry {
 	@EventHandler
 	public static void PreLoad(FMLPreInitializationEvent PreEvent){
 		TMCreativeTabs.initialiseTabs();
+		TMTileEntity.mainRegistry();
 		TMBlock.mainRegistry();
 		TMItem.mainRegistry();
 		TMEntity.mainRegistry();
