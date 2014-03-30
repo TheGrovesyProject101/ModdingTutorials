@@ -1,44 +1,24 @@
 package com.thegrovesyproject.block;
 
-import com.thegrovesyproject.lib.Strings;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.util.IIcon;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.World;
 
 public class TutBlock extends Block {
 
-
-	public IIcon Bottom;
-	public IIcon Top;
-	public IIcon Front;
-	public IIcon Back;
-	public IIcon Left;
-	public IIcon Right;
-	
 	protected TutBlock(Material p_i45394_1_) {
 		super(p_i45394_1_);
 		// TODO Auto-generated constructor stub
 	}
 
-	public void registerBlockIcons(IIconRegister icon){
-		Bottom = icon.registerIcon(Strings.MODID + ":Side0");
-		Top = icon.registerIcon(Strings.MODID + ":Side1");
-		Front = icon.registerIcon(Strings.MODID + ":Side2");
-		Back = icon.registerIcon(Strings.MODID + ":Side3");
-		Left = icon.registerIcon("iron_block");
-		Right = icon.registerIcon(Strings.MODID + ":Side5");
+	public void onEntityWalking(World world, int par2, int par3, int par4, Entity entity) {
+		if(entity instanceof EntityLivingBase){
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.poison.getId(), 200, 100));
+		}
 	}
-	
-	 public IIcon getIcon(int side, int meta)
-	    {
-		 if(side == 0){
-			 return Bottom;
-		 }else if(side == 1){
-			 return Top;
-		 }
-		 	return Left;
-	    }
-
 }

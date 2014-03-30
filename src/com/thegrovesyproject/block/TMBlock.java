@@ -18,15 +18,18 @@ public class TMBlock {
 	public static Block tutBlock;
 	public static Block tutCrop;
 	public static Block tutChest;
+	public static Block multiSided;
 
 	public static void initialiseBlock() {
-		tutBlock = new TutBlock(Material.ground).setBlockName("TutBlock").setCreativeTab(TMCreativeTabs.tabBlock);
+		tutBlock =  new TutBlock(Material.ground).setBlockName("TutBlock").setCreativeTab(TMCreativeTabs.tabBlock).setBlockTextureName(Strings.MODID + ":TutBlock");
+		multiSided = new MultiSided(Material.ground).setBlockName("MultiSided").setCreativeTab(TMCreativeTabs.tabBlock);
 		tutCrop = new TutCrop().setBlockName("TutCrop").setCreativeTab(TMCreativeTabs.tabBlock).setBlockTextureName(Strings.MODID + ":TutCrop");
 		tutChest = new TutChest(0).setBlockName("TutChest").setCreativeTab(TMCreativeTabs.tabBlock).setBlockTextureName(Strings.MODID + ":TutChest");
 	}
 
 	public static void registerBlock() {
 		GameRegistry.registerBlock(tutBlock, tutBlock.getUnlocalizedName());
+		GameRegistry.registerBlock(multiSided, multiSided.getUnlocalizedName());
 		GameRegistry.registerBlock(tutCrop, tutCrop.getUnlocalizedName());
 		GameRegistry.registerBlock(tutChest, tutChest.getUnlocalizedName());
 	}

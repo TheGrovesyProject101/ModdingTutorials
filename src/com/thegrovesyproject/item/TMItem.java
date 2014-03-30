@@ -43,6 +43,7 @@ public class TMItem {
 	public static Item tutSeed;
 	public static Item tutCrop;
 	
+	
 	public static void initialiseItem() {
 		tutItem = new Item().setUnlocalizedName("TutItem").setCreativeTab(TMCreativeTabs.tabMisc).setTextureName(Strings.MODID + ":TutItem");
 		tutPickaxe = new TutPickaxe(tutMaterial).setUnlocalizedName("TutPickaxe").setCreativeTab(TMCreativeTabs.tabTools).setTextureName(Strings.MODID + ":TutPickaxe");
@@ -57,7 +58,7 @@ public class TMItem {
 		tutGrenade = new TutGrenade().setUnlocalizedName("TutGrenade").setCreativeTab(TMCreativeTabs.tabCombat).setTextureName(Strings.MODID + ":TutGrenade");
 		tutSeed = new ItemSeeds(TMBlock.tutCrop, Blocks.farmland).setCreativeTab(TMCreativeTabs.tabMisc).setUnlocalizedName("TutSeeds").setTextureName(Strings.MODID + ":TutSeeds");
 		tutCrop = new Item().setCreativeTab(TMCreativeTabs.tabMisc).setUnlocalizedName("TutCropItem").setTextureName(Strings.MODID + ":TutCrop");
-	}
+			}
 
 	public static void registerItem() {
 		GameRegistry.registerItem(tutItem, tutItem.getUnlocalizedName());
