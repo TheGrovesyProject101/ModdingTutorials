@@ -41,6 +41,7 @@ public class MainRegistry {
 		TMEntity.mainRegistry();
 		CraftingManager.mainRegistry();
 		TMWorld.mainRegistry();
+		TMHooks.mainRegistry();
 		
 		proxy.registerRenderThings();
 	}
@@ -51,7 +52,7 @@ public class MainRegistry {
 	 */
 	@EventHandler
 	public static void load(FMLInitializationEvent event){
-		
+		proxy.registerNetworkStuff();
 	}
 	
 	/**
