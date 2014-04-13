@@ -3,9 +3,9 @@ package com.thegrovesyproject.main;
 import com.thegrovesyproject.block.TMBlock;
 import com.thegrovesyproject.creativetabs.TMCreativeTabs;
 import com.thegrovesyproject.entity.TMEntity;
+import com.thegrovesyproject.handler.TMGuiHandler;
 import com.thegrovesyproject.item.TMItem;
 import com.thegrovesyproject.lib.Strings;
-import com.thegrovesyproject.tile_entity.TMTileEntity;
 import com.thegrovesyproject.world.TMWorld;
 
 import cpw.mods.fml.common.Mod;
@@ -15,7 +15,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.network.NetworkRegistry;
 
 @Mod(modid = Strings.MODID, name = Strings.name, version = Strings.version)
 
@@ -35,7 +35,6 @@ public class MainRegistry {
 	@EventHandler
 	public static void PreLoad(FMLPreInitializationEvent PreEvent){
 		TMCreativeTabs.initialiseTabs();
-		TMTileEntity.mainRegistry();
 		TMBlock.mainRegistry();
 		TMItem.mainRegistry();
 		TMEntity.mainRegistry();
@@ -43,6 +42,7 @@ public class MainRegistry {
 		TMWorld.mainRegistry();
 		TMHooks.mainRegistry();
 		
+		proxy.registerTileEntities();
 		proxy.registerRenderThings();
 	}
 	
@@ -52,7 +52,8 @@ public class MainRegistry {
 	 */
 	@EventHandler
 	public static void load(FMLInitializationEvent event){
-		proxy.registerNetworkStuff();
+		//proxy.registerNetworkStuff();
+		NetworkRegistry.INSTANCE.registerGuiHandler(modInstance, new TMGuiHandler());
 	}
 	
 	/**

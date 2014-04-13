@@ -3,6 +3,7 @@ package com.thegrovesyproject.block;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,11 +19,12 @@ import net.minecraft.world.World;
 
 import com.thegrovesyproject.lib.Strings;
 import com.thegrovesyproject.main.MainRegistry;
+import com.thegrovesyproject.tile_entity.TileEntityTutFurnace;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class TutFurnace extends Block {
+public class TutFurnace extends BlockContainer {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon top;
@@ -67,7 +69,16 @@ public class TutFurnace extends Block {
 	public Item getItem(World world, int par2, int par3, int par4) {
 		return Item.getItemFromBlock(TMBlock.tutFurnace);
 	}
+	
+	/**
+     * Returns a new instance of a block's tile entity class. Called on placing the block.
+     */
+    public TileEntity createNewTileEntity(World world, int par2)
+    {
+        return new TileEntityTutFurnace();
+    }
 
+	
 	@SideOnly(Side.CLIENT)
 	public void onBlockAdded(World world, int x, int y, int z) {
 		super.onBlockAdded(world, x, y, z);
@@ -122,7 +133,7 @@ public class TutFurnace extends Block {
 		}
 
 		if (itemstack.hasDisplayName()) {
-			((TileEntityTutFurnace) world.getTileEntity(x, y, z)).func_145951_a(itemstack.getDisplayName());
+			((TileEntityTutFurnace) world.getTileEntity(x, y, z)).furnaceName(itemstack.getDisplayName());
 		}
 	}
 
@@ -151,7 +162,7 @@ public class TutFurnace extends Block {
 			TileEntityTutFurnace tileentitytutfurnace = (TileEntityTutFurnace) world.getTileEntity(x, y, z);
 
 			if (tileentitytutfurnace != null) {
-				for (int i = 0; i < tileentitytutfurnace.getInventorySize; ++i) {
+				for (int i = 0; i < tileentitytutfurnace.getSizeInventory(); ++i) {
 					ItemStack itemstack = tileentitytutfurnace.getStackInSlot(i);
 
 					if (itemstack != null) {
