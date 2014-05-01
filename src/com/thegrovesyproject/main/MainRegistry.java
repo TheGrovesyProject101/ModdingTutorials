@@ -3,6 +3,7 @@ package com.thegrovesyproject.main;
 import com.thegrovesyproject.block.TMBlock;
 import com.thegrovesyproject.creativetabs.TMCreativeTabs;
 import com.thegrovesyproject.entity.TMEntity;
+import com.thegrovesyproject.handler.CraftingManager;
 import com.thegrovesyproject.handler.TMGuiHandler;
 import com.thegrovesyproject.item.TMItem;
 import com.thegrovesyproject.lib.Strings;
@@ -52,8 +53,7 @@ public class MainRegistry {
 	 */
 	@EventHandler
 	public static void load(FMLInitializationEvent event){
-		//proxy.registerNetworkStuff();
-		NetworkRegistry.INSTANCE.registerGuiHandler(modInstance, new TMGuiHandler());
+		proxy.registerNetworkStuff();
 	}
 	
 	/**

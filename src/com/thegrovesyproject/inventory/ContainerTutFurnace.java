@@ -7,8 +7,8 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 
+import com.thegrovesyproject.handler.TutFurnaceRecipes;
 import com.thegrovesyproject.tile_entity.TileEntityTutFurnace;
 
 import cpw.mods.fml.relauncher.Side;
@@ -103,7 +103,7 @@ public class ContainerTutFurnace extends Container {
 				}
 				slot.onSlotChange(itemstack1, itemstack);
 			}else if(par2 != 1 && par2 != 0){
-				if(FurnaceRecipes.smelting().getSmeltingResult(itemstack1) != null){
+				if(TutFurnaceRecipes.smelting().getSmeltingResult(itemstack1) != null){
 					if(!this.mergeItemStack(itemstack1, 0, 1, false)){
 						return null;
 					}

@@ -17,6 +17,7 @@ import net.minecraft.tileentity.TileEntity;
 
 import com.thegrovesyproject.block.TMBlock;
 import com.thegrovesyproject.block.TutFurnace;
+import com.thegrovesyproject.handler.TutFurnaceRecipes;
 import com.thegrovesyproject.item.TMItem;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -221,7 +222,7 @@ public class TileEntityTutFurnace extends TileEntity implements ISidedInventory 
 		if (this.furnaceItemStacks[0] == null) {
 			return false;
 		} else {
-			ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
+			ItemStack itemstack = TutFurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
 			if (itemstack == null) return false;
 			if (this.furnaceItemStacks[2] == null) return true;
 			if (!this.furnaceItemStacks[2].isItemEqual(itemstack)) return false;
@@ -232,7 +233,7 @@ public class TileEntityTutFurnace extends TileEntity implements ISidedInventory 
 
 	public void smeltItem() {
 		if (this.canSmelt()) {
-			ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
+			ItemStack itemstack = TutFurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
 
 			if (this.furnaceItemStacks[2] == null) {
 				this.furnaceItemStacks[2] = itemstack.copy();
